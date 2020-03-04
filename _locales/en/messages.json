@@ -1,4 +1,9 @@
 {
   "extensionName": { "message": "TST Tab Drag Handle" },
-  "extensionDescription": { "message": "Provides UI in Tree Style Tab to start tab dragging for different purposes." }
+  "extensionDescription": { "message": "Provides UI in Tree Style Tab to start tab dragging for different purposes." },
+
+  "tabDragHandle_tree_tearoff_tooltip":  { "message": "Start dragging to detach this tree from the window" },
+  "tabDragHandle_tree_bookmark_tooltip": { "message": "Start dragging to bookmark this tree" },
+  "tabDragHandle_tab_tearoff_tooltip":   { "message": "Start dragging to detach this individual tab from the window" },
+  "tabDragHandle_tab_bookmark_tooltip":  { "message": "Start dragging to bookmark this individual tab" }
 }

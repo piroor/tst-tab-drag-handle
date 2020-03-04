@@ -1,0 +1,6 @@
+{
+  "tabDragHandle_tree_tearoff_tooltip":  { "message": "Перетащите, чтобы отделить это дерево от окна" },
+  "tabDragHandle_tree_bookmark_tooltip": { "message": "Перетащите, чтобы добавить это дерево в закладки" },
+  "tabDragHandle_tab_tearoff_tooltip":   { "message": "Перетащите, чтобы отделить эту вкладку от окна" },
+  "tabDragHandle_tab_bookmark_tooltip":  { "message": "Перетащите, чтобы добавить эту вкладку в закладки" }
+}

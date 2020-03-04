@@ -1,0 +1,6 @@
+{
+  "tabDragHandle_tree_tearoff_tooltip":  { "message": "Ziehen um diesen Zweig vom Fenster abzulösen" },
+  "tabDragHandle_tree_bookmark_tooltip": { "message": "Ziehen um Lesezeichen von diesem Zweig anzulegen" },
+  "tabDragHandle_tab_tearoff_tooltip":   { "message": "Ziehen um diesen einzelnen Tab vom Fenster abzulösen" },
+  "tabDragHandle_tab_bookmark_tooltip":  { "message": "Ziehen um ein Lesezeichen von diesem einzelnen Tab anzulegen" }
+}

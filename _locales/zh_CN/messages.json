@@ -1,0 +1,20 @@
+{
+    "tabDragHandle_tree_tearoff_tooltip": {
+        "message": "开始拖拽来使此树与窗口分离",
+        "hash": "b04f870323376ca2ded6087fc449cbc3"
+    },
+    "tabDragHandle_tree_bookmark_tooltip": {
+        "message": "开始拖拽来将此树加入书签",
+        "hash": "adebb19a61a190f797c581119711bf01"
+    },
+    "tabDragHandle_tab_tearoff_tooltip": {
+        "message": "开始拖拽来使此单独标签页与窗口分离",
+        "hash": "13a4804844126236569da9a74fd03c7c"
+    },
+    "tabDragHandle_tab_bookmark_tooltip": {
+        "message": "开始拖拽来将此单独标签页加入书签",
+        "hash": "b52ee181ba28ee1b1c5c600129b22799"
+    },
+
+    "__WET_LOCALE__": { "message": "zh-CN" }
+}

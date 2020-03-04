@@ -1,0 +1,6 @@
+{
+  "tabDragHandle_tree_tearoff_tooltip":  { "message": "開始拖曳此樹離視窗" },
+  "tabDragHandle_tree_bookmark_tooltip": { "message": "開始拖曳此樹加入書籤" },
+  "tabDragHandle_tab_tearoff_tooltip":   { "message": "開始拖曳此分頁離視窗" },
+  "tabDragHandle_tab_bookmark_tooltip":  { "message": "開始拖曳此分頁加入書籤中" }
+}
