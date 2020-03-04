@@ -79,19 +79,19 @@ async function registerToTST() {
         }
 
         ::part(%EXTRA_CONTENTS_PART% handle-image detach-tree) {
-          mask: url("moz-extension://${location.host}/resources/detach-tree.svg") no-repeat center / 100%;
+          mask: url("${base}/resources/detach-tree.svg") no-repeat center / 100%;
         }
 
         ::part(%EXTRA_CONTENTS_PART% handle-image bookmark-tree) {
-          mask: url("moz-extension://${location.host}/resources/bookmark-tree.svg") no-repeat center / 100%;
+          mask: url("${base}/resources/bookmark-tree.svg") no-repeat center / 100%;
         }
 
         ::part(%EXTRA_CONTENTS_PART% handle-image detach-solo) {
-          mask: url("moz-extension://${location.host}/resources/detach-solo.svg") no-repeat center / 100%;
+          mask: url("${base}/resources/detach-solo.svg") no-repeat center / 100%;
         }
 
         ::part(%EXTRA_CONTENTS_PART% handle-image bookmark-solo) {
-          mask: url("moz-extension://${location.host}/resources/bookmark-solo.svg") no-repeat center / 100%;
+          mask: url("${base}/resources/bookmark-solo.svg") no-repeat center / 100%;
         }
 
         tab-item:not([data-child-ids]) ::part(%EXTRA_CONTENTS_PART% handle detach-tree),
