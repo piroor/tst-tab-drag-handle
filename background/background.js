@@ -42,14 +42,14 @@ function getStyle() {
       transition: opacity var(--collapse-animation) ${hideDelay}ms;
     }
 
-    tab-item:hover ::part(%EXTRA_CONTENTS_PART% handles) {
+    .extra-items-container.front:hover::part(%EXTRA_CONTENTS_PART% handles) {
       animation: delay-pointer-events calc(var(--collapse-duration) + ${showDelay}ms) linear;
       opacity: 1;
       pointer-events: auto;
       transition: opacity var(--collapse-animation) ${showDelay}ms;
     }
 
-    tab-item.dragging:hover ::part(%EXTRA_CONTENTS_PART% handles) {
+    tab-item.dragging .extra-items-container.front:hover::part(%EXTRA_CONTENTS_PART% handles) {
       opacity: 0;
       transition: opacity var(--collapse-animation);
     }

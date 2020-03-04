@@ -8,9 +8,9 @@
   "tooltip_bookmark_solo":  { "message": "Start dragging to bookmark this individual tab" },
 
   "config_showDelay_label_before": { "message": "Show handles after " },
-  "config_showDelay_label_after":  { "message": "milliseconds when a tab is pointed" },
+  "config_showDelay_label_after":  { "message": "milliseconds when a tab label is pointed" },
   "config_hideDelay_label_before": { "message": "Hide handles after " },
-  "config_hideDelay_label_after":  { "message": "milliseconds when the cursor is left from a tab" },
+  "config_hideDelay_label_after":  { "message": "milliseconds when the cursor is left from a tab label" },
 
   "config_dragHandle_caption": { "message": "Active Handles" },
   "config_handleDetachTree_label":   { "message": "Detach Tree from the window" },
