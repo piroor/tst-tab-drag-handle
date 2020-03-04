@@ -11,19 +11,27 @@ import {
 
 const TST_ID = 'treestyletab@piro.sakura.ne.jp';
 
+// pointer-events is not transitionable, so we use animation.
+const ANIMATION = `
+  @keyframes delay-pointer-events {
+      0%   { pointer-events: none; }
+      99%  { pointer-events: none; }
+      100% { pointer-events: auto; }
+  }
+`;
+
 async function registerToTST() {
   try {
     const base = `moz-extension://${location.host}`;
     await browser.runtime.sendMessage(TST_ID, {
-      type: 'register-self',
+      type: 'register-self' ,
       name: browser.i18n.getMessage('extensionName'),
       //icons: browser.runtime.getManifest().icons,
       listeningTypes: [
         'sidebar-show'
       ],
       style: `
-        tab-item ::part(%EXTRA_CONTENTS_PART% container) {
-
+        ::part(%EXTRA_CONTENTS_PART% container) {
           bottom: 0;
           direction: ltr;
           left: 0;
@@ -37,13 +45,18 @@ async function registerToTST() {
         ::part(%EXTRA_CONTENTS_PART% handles) {
           opacity: 0;
           pointer-events: none;
-          transition: opacity var(--collapse-animation) ${configs.hoverDelay}ms,
-                      pointer-events var(--collapse-animation) ${configs.hoverDelay}ms;
+          transition: opacity var(--collapse-animation) ${configs.hoverDelay}ms;
         }
 
         tab-item:hover ::part(%EXTRA_CONTENTS_PART% handles) {
-          opacity: 1;
+          animation: delay-pointer-events calc(var(--collapse-duration) + ${configs.hoverDelay}ms) linear;
           pointer-events: auto;
+          opacity: 1;
+        }
+
+        tab-item.dragging:hover ::part(%EXTRA_CONTENTS_PART% handles) {
+          opacity: 0;
+          transition: opacity var(--collapse-animation);
         }
 
         ::part(%EXTRA_CONTENTS_PART% handle) {
@@ -206,6 +219,7 @@ function insertHandle(tabId) {
   browser.runtime.sendMessage(TST_ID, {
     type:      'set-extra-tab-contents',
     id:        tabId,
+    style:     ANIMATION, // Gecko doesn't apply animation defined in the owner document to shadow DOM elements...
     contents: [
       '<span part="handles">',
       handleDetachTree,
