@@ -7,6 +7,9 @@
   "tooltip_detach_solo":   { "message": "Start dragging to detach this individual tab from the window" },
   "tooltip_bookmark_solo":  { "message": "Start dragging to bookmark this individual tab" },
 
+  "config_size_label_before": { "message": "Size of handles: " },
+  "config_size_label_after":  { "message": "pixels" },
+
   "config_showDelay_label_before": { "message": "Show handles after " },
   "config_showDelay_label_after":  { "message": "milliseconds when a tab label is pointed" },
   "config_hideDelay_label_before": { "message": "Hide handles after " },

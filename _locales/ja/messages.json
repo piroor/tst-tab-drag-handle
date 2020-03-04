@@ -7,6 +7,9 @@
   "tooltip_detach_solo":   { "message": "この単一のタブをウィンドウから切り離すためにドラッグを開始する" },
   "tooltip_bookmark_solo":  { "message": "この単一のタブをブックマークするためにドラッグを開始する" },
 
+  "config_size_label_before": { "message": "つまみの大きさ：" },
+  "config_size_label_after":  { "message": "ピクセル" },
+
   "config_showDelay_label_before": { "message": "タブのラベルにカーソルをあててから" },
   "config_showDelay_label_after":  { "message": "ミリ秒後につまみを表示する" },
   "config_hideDelay_label_before": { "message": "タブのラベルからカーソルが離れてから" },

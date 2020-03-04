@@ -34,6 +34,8 @@ function getStyle() {
       position: absolute;
       text-align: left;
       z-index: 2000;
+      --handle-size: ${configs.size}px;
+      --handle-icon-size: calc(${configs.size}px / 1.5);
     }
 
     ::part(%EXTRA_CONTENTS_PART% handles) {
@@ -55,19 +57,18 @@ function getStyle() {
     }
 
     ::part(%EXTRA_CONTENTS_PART% handle) {
-      --handle-size: calc(var(--favicon-size) * 1.5);
       background: var(--tab-like-surface, var(--bg-color));
       border: 1px solid var(--tab-border);
       display: table-cell;
-      height: var(--handle-size);
-      min-height: var(--handle-size);
-      min-width: var(--handle-size);
+      height: var(--handle-icon-size);
+      min-height: var(--handle-icon-size);
+      min-width: var(--handle-icon-size);
       opacity: 0.75;
       text-align: center;
       transition: border-color var(--collapse-animation),
                   opacity var(--collapse-animation);
       vertical-align: middle;
-      width: var(--handle-size);
+      width: var(--handle-icon-size);
     }
 
     ::part(%EXTRA_CONTENTS_PART% handle following) {
@@ -78,12 +79,12 @@ function getStyle() {
       -moz-context-properties: fill;
       background: var(--tab-text);
       display: inline-block;
-      height: var(--svg-small-icon-size);
+      height: var(--handle-icon-size);
       line-height: 1;
-      margin-top: calc((var(--favicon-size) - var(--svg-small-icon-size)) / 2);
-      max-height: var(--favicon-size);
-      max-width: var(--favicon-size);
-      width: var(--svg-small-icon-size);
+      margin: calc((var(--handle-size) - var(--handle-icon-size)) / 2);
+      max-height: var(--handle-icon-size);
+      max-width: var(--handle-icon-size);
+      width: var(--handle-icon-size);
     }
 
     ::part(%EXTRA_CONTENTS_PART% handle-image detach-tree) {
@@ -134,6 +135,7 @@ registerToTST();
 
 configs.$addObserver(key => {
   switch (key) {
+    case 'size':
     case 'showDelay':
     case 'hideDelay':
       registerToTST();

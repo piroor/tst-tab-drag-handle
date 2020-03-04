@@ -13,6 +13,7 @@ export const configs = new Configs({
   handleDetachSolo: true,
   handleBookmarkSolo: true,
 
+  size: 24,
   showDelay: 750,
   hideDelay: 250
 }, {
