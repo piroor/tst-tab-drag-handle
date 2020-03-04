@@ -7,8 +7,10 @@
   "tooltip_detach_solo":   { "message": "この単一のタブをウィンドウから切り離すためにドラッグを開始する" },
   "tooltip_bookmark_solo":  { "message": "この単一のタブをブックマークするためにドラッグを開始する" },
 
-  "config_hoverDelay_label_before": { "message": "タブにカーソルをあててから" },
-  "config_hoverDelay_label_after":  { "message": "ミリ秒後につまみを表示する" },
+  "config_showDelay_label_before": { "message": "タブにカーソルをあててから" },
+  "config_showDelay_label_after":  { "message": "ミリ秒後につまみを表示する" },
+  "config_hideDelay_label_before": { "message": "タブからカーソルが離れてから" },
+  "config_hideDelay_label_after":  { "message": "ミリ秒後につまみを消す" },
 
   "config_dragHandle_caption": { "message": "表示するつまみ" },
   "config_handleDetachTree_label":   { "message": "ツリーをウィンドウから切り離す" },

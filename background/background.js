@@ -22,7 +22,8 @@ const ANIMATION = `
 
 function getStyle() {
   const base = `moz-extension://${location.host}`;
-  const hoverDelay = Math.max(0, configs.hoverDelay);
+  const showDelay = Math.max(0, configs.showDelay);
+  const hideDelay = Math.max(0, configs.hideDelay);
   return `
     ::part(%EXTRA_CONTENTS_PART% container) {
       bottom: 0;
@@ -38,13 +39,14 @@ function getStyle() {
     ::part(%EXTRA_CONTENTS_PART% handles) {
       opacity: 0;
       pointer-events: none;
-      transition: opacity var(--collapse-animation) ${hoverDelay}ms;
+      transition: opacity var(--collapse-animation) ${hideDelay}ms;
     }
 
     tab-item:hover ::part(%EXTRA_CONTENTS_PART% handles) {
-      animation: delay-pointer-events calc(var(--collapse-duration) + ${hoverDelay}ms) linear;
-      pointer-events: auto;
+      animation: delay-pointer-events calc(var(--collapse-duration) + ${showDelay}ms) linear;
       opacity: 1;
+      pointer-events: auto;
+      transition: opacity var(--collapse-animation) ${showDelay}ms;
     }
 
     tab-item.dragging:hover ::part(%EXTRA_CONTENTS_PART% handles) {
@@ -132,7 +134,8 @@ registerToTST();
 
 configs.$addObserver(key => {
   switch (key) {
-    case 'hoverDelay':
+    case 'showDelay':
+    case 'hideDelay':
       registerToTST();
       return;
   }

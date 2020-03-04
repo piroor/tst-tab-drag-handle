@@ -13,7 +13,8 @@ export const configs = new Configs({
   handleDetachSolo: true,
   handleBookmarkSolo: true,
 
-  hoverDelay: 750
+  showDelay: 750,
+  hideDelay: 250
 }, {
   localKeys: [
   ]
