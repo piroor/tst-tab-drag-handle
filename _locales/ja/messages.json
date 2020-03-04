@@ -5,5 +5,14 @@
   "tooltip_detach_tree":  { "message": "このツリーをウィンドウから切り離すためにドラッグを開始する" },
   "tooltip_bookmark_tree": { "message": "このツリーをブックマークするためにドラッグを開始する" },
   "tooltip_detach_solo":   { "message": "この単一のタブをウィンドウから切り離すためにドラッグを開始する" },
-  "tooltip_bookmark_solo":  { "message": "この単一のタブをブックマークするためにドラッグを開始する" }
+  "tooltip_bookmark_solo":  { "message": "この単一のタブをブックマークするためにドラッグを開始する" },
+
+  "config_hoverDelay_label_before": { "message": "タブにカーソルをあててから" },
+  "config_hoverDelay_label_after":  { "message": "ミリ秒後につまみを表示する" },
+
+  "config_dragHandle_caption": { "message": "表示するつまみ" },
+  "config_handleDetachTree_label":   { "message": "ツリーをウィンドウから切り離す" },
+  "config_handleBookmarkTree_label": { "message": "ツリーをブックマークする" },
+  "config_handleDetachSolo_label":   { "message": "単一のタブをウィンドウから切り離す" },
+  "config_handleBookmarkSolo_label": { "message": "単一のタブをブックマークする" }
 }
