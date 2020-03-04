@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "name": "__MSG_extensionName__",
+  "version": "0.0.1",
+  "author": "YUKI \"Piro\" Hiroshi",
+  "description": "__MSG_extensionDescription__",
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+  "background": {
+    "page": "/background/background.html"
+  },
+  "options_ui": {
+    "page": "/options/options.html"
+  },
+  "web_accessible_resources": [
+    "/resources/ArrowheadDownDouble.svg"
+  ],
+  "default_locale": "en",
+  "applications": {
+    "gecko": {
+      "id": "tst-tab-drag-handle@piro.sakura.ne.jp",
+      "strict_min_version": "72.0"
+    }
+  }
+}

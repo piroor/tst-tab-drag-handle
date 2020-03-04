@@ -1,0 +1,4 @@
+{
+  "extensionName": { "message": "TST Tab Drag Handle" },
+  "extensionDescription": { "message": "Tree Style Tabに対し、異なる目的ごとにドラッグ操作を開始するためのUIを提供します。" }
+}
