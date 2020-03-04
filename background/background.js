@@ -20,17 +20,8 @@ const ANIMATION = `
   }
 `;
 
-async function registerToTST() {
-  try {
-    const base = `moz-extension://${location.host}`;
-    await browser.runtime.sendMessage(TST_ID, {
-      type: 'register-self' ,
-      name: browser.i18n.getMessage('extensionName'),
-      //icons: browser.runtime.getManifest().icons,
-      listeningTypes: [
-        'sidebar-show'
-      ],
-      style: `
+const base = `moz-extension://${location.host}`;
+const STYLE = `
         ::part(%EXTRA_CONTENTS_PART% container) {
           bottom: 0;
           direction: ltr;
@@ -116,7 +107,18 @@ async function registerToTST() {
           border-color: var(--tab-text);
           opacity: 1;
         }
-      `
+`;
+
+async function registerToTST() {
+  try {
+    await browser.runtime.sendMessage(TST_ID, {
+      type: 'register-self' ,
+      name: browser.i18n.getMessage('extensionName'),
+      //icons: browser.runtime.getManifest().icons,
+      listeningTypes: [
+        'sidebar-show'
+      ],
+      style: STYLE
     });
   }
   catch(_error) {
