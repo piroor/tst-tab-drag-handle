@@ -20,8 +20,10 @@ const ANIMATION = `
   }
 `;
 
-const base = `moz-extension://${location.host}`;
-const STYLE = `
+function getStyle() {
+  const base = `moz-extension://${location.host}`;
+  const hoverDelay = Math.max(0, configs.hoverDelay);
+  return `
   ::part(%EXTRA_CONTENTS_PART% container) {
     bottom: 0;
     direction: ltr;
@@ -36,11 +38,11 @@ const STYLE = `
   ::part(%EXTRA_CONTENTS_PART% handles) {
     opacity: 0;
     pointer-events: none;
-    transition: opacity var(--collapse-animation) ${configs.hoverDelay}ms;
+    transition: opacity var(--collapse-animation) ${hoverDelay}ms;
   }
 
   tab-item:hover ::part(%EXTRA_CONTENTS_PART% handles) {
-    animation: delay-pointer-events calc(var(--collapse-duration) + ${configs.hoverDelay}ms) linear;
+    animation: delay-pointer-events calc(var(--collapse-duration) + ${hoverDelay}ms) linear;
     pointer-events: auto;
     opacity: 1;
   }
@@ -107,7 +109,8 @@ const STYLE = `
     border-color: var(--tab-text);
     opacity: 1;
   }
-`;
+  `;
+}
 
 async function registerToTST() {
   try {
@@ -118,7 +121,7 @@ async function registerToTST() {
       listeningTypes: [
         'sidebar-show'
       ],
-      style: STYLE
+      style: getStyle()
     });
   }
   catch(_error) {
@@ -126,6 +129,14 @@ async function registerToTST() {
   }
 }
 registerToTST();
+
+configs.$addObserver(key => {
+  switch (key) {
+    case 'hoverDelay':
+      registerToTST();
+      return;
+  }
+});
 
 browser.runtime.onMessageExternal.addListener((message, sender) => {
   switch (sender.id) {
