@@ -24,91 +24,91 @@ function getStyle() {
   const base = `moz-extension://${location.host}`;
   const hoverDelay = Math.max(0, configs.hoverDelay);
   return `
-  ::part(%EXTRA_CONTENTS_PART% container) {
-    bottom: 0;
-    direction: ltr;
-    left: 0;
-    line-height: 1;
-    overflow: hidden;
-    position: absolute;
-    text-align: left;
-    z-index: 2000;
-  }
+    ::part(%EXTRA_CONTENTS_PART% container) {
+      bottom: 0;
+      direction: ltr;
+      left: 0;
+      line-height: 1;
+      overflow: hidden;
+      position: absolute;
+      text-align: left;
+      z-index: 2000;
+    }
 
-  ::part(%EXTRA_CONTENTS_PART% handles) {
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity var(--collapse-animation) ${hoverDelay}ms;
-  }
+    ::part(%EXTRA_CONTENTS_PART% handles) {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--collapse-animation) ${hoverDelay}ms;
+    }
 
-  tab-item:hover ::part(%EXTRA_CONTENTS_PART% handles) {
-    animation: delay-pointer-events calc(var(--collapse-duration) + ${hoverDelay}ms) linear;
-    pointer-events: auto;
-    opacity: 1;
-  }
+    tab-item:hover ::part(%EXTRA_CONTENTS_PART% handles) {
+      animation: delay-pointer-events calc(var(--collapse-duration) + ${hoverDelay}ms) linear;
+      pointer-events: auto;
+      opacity: 1;
+    }
 
-  tab-item.dragging:hover ::part(%EXTRA_CONTENTS_PART% handles) {
-    opacity: 0;
-    transition: opacity var(--collapse-animation);
-  }
+    tab-item.dragging:hover ::part(%EXTRA_CONTENTS_PART% handles) {
+      opacity: 0;
+      transition: opacity var(--collapse-animation);
+    }
 
-  ::part(%EXTRA_CONTENTS_PART% handle) {
-    --handle-size: calc(var(--favicon-size) * 1.5);
-    background: var(--tab-like-surface, var(--bg-color));
-    border: 1px solid var(--tab-border);
-    display: table-cell;
-    height: var(--handle-size);
-    min-height: var(--handle-size);
-    min-width: var(--handle-size);
-    opacity: 0.75;
-    text-align: center;
-    transition: border-color var(--collapse-animation),
-                opacity var(--collapse-animation);
-    vertical-align: middle;
-    width: var(--handle-size);
-  }
+    ::part(%EXTRA_CONTENTS_PART% handle) {
+      --handle-size: calc(var(--favicon-size) * 1.5);
+      background: var(--tab-like-surface, var(--bg-color));
+      border: 1px solid var(--tab-border);
+      display: table-cell;
+      height: var(--handle-size);
+      min-height: var(--handle-size);
+      min-width: var(--handle-size);
+      opacity: 0.75;
+      text-align: center;
+      transition: border-color var(--collapse-animation),
+                  opacity var(--collapse-animation);
+      vertical-align: middle;
+      width: var(--handle-size);
+    }
 
-  ::part(%EXTRA_CONTENTS_PART% handle following) {
-    margin-left: -1px;
-  }
+    ::part(%EXTRA_CONTENTS_PART% handle following) {
+      margin-left: -1px;
+    }
 
-  ::part(%EXTRA_CONTENTS_PART% handle-image) {
-    -moz-context-properties: fill;
-    background: var(--tab-text);
-    display: inline-block;
-    height: var(--svg-small-icon-size);
-    line-height: 1;
-    margin-top: calc((var(--favicon-size) - var(--svg-small-icon-size)) / 2);
-    max-height: var(--favicon-size);
-    max-width: var(--favicon-size);
-    width: var(--svg-small-icon-size);
-  }
+    ::part(%EXTRA_CONTENTS_PART% handle-image) {
+      -moz-context-properties: fill;
+      background: var(--tab-text);
+      display: inline-block;
+      height: var(--svg-small-icon-size);
+      line-height: 1;
+      margin-top: calc((var(--favicon-size) - var(--svg-small-icon-size)) / 2);
+      max-height: var(--favicon-size);
+      max-width: var(--favicon-size);
+      width: var(--svg-small-icon-size);
+    }
 
-  ::part(%EXTRA_CONTENTS_PART% handle-image detach-tree) {
-    mask: url("${base}/resources/detach-tree.svg") no-repeat center / 100%;
-  }
+    ::part(%EXTRA_CONTENTS_PART% handle-image detach-tree) {
+      mask: url("${base}/resources/detach-tree.svg") no-repeat center / 100%;
+    }
 
-  ::part(%EXTRA_CONTENTS_PART% handle-image bookmark-tree) {
-    mask: url("${base}/resources/bookmark-tree.svg") no-repeat center / 100%;
-  }
+    ::part(%EXTRA_CONTENTS_PART% handle-image bookmark-tree) {
+      mask: url("${base}/resources/bookmark-tree.svg") no-repeat center / 100%;
+    }
 
-  ::part(%EXTRA_CONTENTS_PART% handle-image detach-solo) {
-    mask: url("${base}/resources/detach-solo.svg") no-repeat center / 100%;
-  }
+    ::part(%EXTRA_CONTENTS_PART% handle-image detach-solo) {
+      mask: url("${base}/resources/detach-solo.svg") no-repeat center / 100%;
+    }
 
-  ::part(%EXTRA_CONTENTS_PART% handle-image bookmark-solo) {
-    mask: url("${base}/resources/bookmark-solo.svg") no-repeat center / 100%;
-  }
+    ::part(%EXTRA_CONTENTS_PART% handle-image bookmark-solo) {
+      mask: url("${base}/resources/bookmark-solo.svg") no-repeat center / 100%;
+    }
 
-  tab-item:not([data-child-ids]) ::part(%EXTRA_CONTENTS_PART% handle detach-tree),
-  tab-item:not([data-child-ids]) ::part(%EXTRA_CONTENTS_PART% handle bookmark-tree) {
-    display: none;
-  }
+    tab-item:not([data-child-ids]) ::part(%EXTRA_CONTENTS_PART% handle detach-tree),
+    tab-item:not([data-child-ids]) ::part(%EXTRA_CONTENTS_PART% handle bookmark-tree) {
+      display: none;
+    }
 
-  ::part(%EXTRA_CONTENTS_PART% handle):hover {
-    border-color: var(--tab-text);
-    opacity: 1;
-  }
+    ::part(%EXTRA_CONTENTS_PART% handle):hover {
+      border-color: var(--tab-text);
+      opacity: 1;
+    }
   `;
 }
 
