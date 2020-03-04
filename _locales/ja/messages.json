@@ -2,8 +2,8 @@
   "extensionName": { "message": "TST Tab Drag Handle" },
   "extensionDescription": { "message": "Tree Style Tabに対し、異なる目的ごとにドラッグ操作を開始するためのUIを提供します。" },
 
-  "tabDragHandle_tree_tearoff_tooltip":  { "message": "このツリーをウィンドウから切り離すためにドラッグを開始する" },
-  "tabDragHandle_tree_bookmark_tooltip": { "message": "このツリーをブックマークするためにドラッグを開始する" },
-  "tabDragHandle_tab_tearoff_tooltip":   { "message": "この単一のタブをウィンドウから切り離すためにドラッグを開始する" },
-  "tabDragHandle_tab_bookmark_tooltip":  { "message": "この単一のタブをブックマークするためにドラッグを開始する" }
+  "tooltip_detach_tree":  { "message": "このツリーをウィンドウから切り離すためにドラッグを開始する" },
+  "tooltip_bookmark_tree": { "message": "このツリーをブックマークするためにドラッグを開始する" },
+  "tooltip_detach_solo":   { "message": "この単一のタブをウィンドウから切り離すためにドラッグを開始する" },
+  "tooltip_bookmark_solo":  { "message": "この単一のタブをブックマークするためにドラッグを開始する" }
 }

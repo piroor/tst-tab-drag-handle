@@ -8,6 +8,12 @@
 import Configs from '/extlib/Configs.js';
 
 export const configs = new Configs({
+  handleDetachTree: true,
+  handleBookmarkTree: true,
+  handleDetachSolo: true,
+  handleBookmarkSolo: true,
+
+  hoverDelay: 750
 }, {
   localKeys: [
   ]

@@ -15,7 +15,10 @@
     "page": "/options/options.html"
   },
   "web_accessible_resources": [
-    "/resources/ArrowheadDownDouble.svg"
+    "/resources/bookmark-solo.svg",
+    "/resources/bookmark-tree.svg",
+    "/resources/detach-solo.svg",
+    "/resources/detach-tree.svg"
   ],
   "default_locale": "en",
   "applications": {

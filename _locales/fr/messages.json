@@ -1,6 +1,6 @@
 {
-  "tabDragHandle_tree_tearoff_tooltip":  { "message": "Glissez pour détacher cet arbre de la fenêtre" },
-  "tabDragHandle_tree_bookmark_tooltip": { "message": "Glissez pour ajouter cet arbre aux marque-pages" },
-  "tabDragHandle_tab_tearoff_tooltip":   { "message": "Glissez pour détacher cet onglet seul de la fenêtre" },
-  "tabDragHandle_tab_bookmark_tooltip":  { "message": "Glissez pour ajouter cet onglet seul aux marque-pages" }
+  "tooltip_detach_tree":  { "message": "Glissez pour détacher cet arbre de la fenêtre" },
+  "tooltip_bookmark_tree": { "message": "Glissez pour ajouter cet arbre aux marque-pages" },
+  "tooltip_detach_solo":   { "message": "Glissez pour détacher cet onglet seul de la fenêtre" },
+  "tooltip_bookmark_solo":  { "message": "Glissez pour ajouter cet onglet seul aux marque-pages" }
 }
