@@ -178,11 +178,11 @@ function tryReset() {
     clearTimeout(tryReset.reserved);
   tryReset.reserved = setTimeout(() => {
     tryReset.reserved = null;
-browser.tabs.query({}).then(tabs => {
-  for (const tab of tabs) {
-    insertHandle(tab.id);
-  }
-});
+    browser.tabs.query({}).then(tabs => {
+      for (const tab of tabs) {
+        insertHandle(tab.id);
+      }
+    });
   }, 100);
 }
 tryReset.reserved = null;
