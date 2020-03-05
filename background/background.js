@@ -126,6 +126,7 @@ async function registerToTST() {
       ],
       style: getStyle()
     });
+    tryReset();
   }
   catch(_error) {
     // TST is not available
