@@ -38,10 +38,6 @@ function getStyle() {
       --handle-icon-size: calc(${configs.size}px / 1.5);
     }
 
-    ::part(%EXTRA_CONTENTS_PART% hidden) {
-      display: none;
-    }
-
     ::part(%EXTRA_CONTENTS_PART% handles) {
       opacity: 0;
       pointer-events: none;
@@ -178,8 +174,8 @@ browser.tabs.query({}).then(tabs => {
 });
 
 function insertHandle(tabId) {
-  const handleDetachTree = `
-    <span part="handle detach-tree ${!configs.handleDetachTree && 'hidden'}"
+  const handleDetachTree = configs.handleDetachTree ? `
+    <span part="handle detach-tree"
          draggable="true"
          data-drag-data='{
            "type": "tab",
@@ -192,9 +188,9 @@ function insertHandle(tabId) {
          }'
          title="${sanitzeForHTML(browser.i18n.getMessage('tooltip_detach_tree'))}"
       ><span part="handle-image detach-tree"></span></span>
-  `.trim();
-  const handleBookmarkTree = `
-    <span part="handle bookmark-tree following ${!configs.handleBookmarkTree && 'hidden'}"
+  `.trim() : '';
+  const handleBookmarkTree = configs.handleBookmarkTree ? `
+    <span part="handle bookmark-tree following"
          draggable="true"
          data-drag-data='{
            "type": "tab",
@@ -207,9 +203,9 @@ function insertHandle(tabId) {
          }'
          title="${sanitzeForHTML(browser.i18n.getMessage('tooltip_bookmark_tree'))}"
       ><span part="handle-image bookmark-tree"></span></span>
-  `.trim();
-  const handleDetachSolo = `
-    <span part="handle detach-solo following ${!configs.handleDetachSolo && 'hidden'}"
+  `.trim() : '';
+  const handleDetachSolo = configs.handleDetachSolo ? `
+    <span part="handle detach-solo following"
          draggable="true"
          data-drag-data='{
            "type": "tab",
@@ -222,9 +218,9 @@ function insertHandle(tabId) {
          }'
          title="${sanitzeForHTML(browser.i18n.getMessage('tooltip_detach_solo'))}"
       ><span part="handle-image detach-solo"></span></span>
-  `.trim();
-  const handleBookmarkSolo =  `
-    <span part="handle bookmark-solo following ${!configs.handleBookmarkSolo && 'hidden'}"
+  `.trim() : '';
+  const handleBookmarkSolo = configs.handleBookmarkSolo ? `
+    <span part="handle bookmark-solo following"
          draggable="true"
          data-drag-data='{
            "type": "tab",
@@ -237,7 +233,7 @@ function insertHandle(tabId) {
          }'
          title="${sanitzeForHTML(browser.i18n.getMessage('tooltip_bookmark_solo'))}"
       ><span part="handle-image bookmark-solo"></span></span>
-  `.trim();
+  `.trim() : '';
   browser.runtime.sendMessage(TST_ID, {
     type:      'set-extra-tab-contents',
     id:        tabId,
