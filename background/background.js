@@ -179,7 +179,7 @@ browser.tabs.query({}).then(tabs => {
 
 function insertHandle(tabId) {
   const handleDetachTree = `
-    <span part="handle detach-tree ${!configs.handleDetachTree && 'hidden'}"
+    <span part="handle detach-tree ${configs.handleDetachTree ? '' : 'hidden'}"
          draggable="true"
          data-drag-data='{
            "type": "tab",
@@ -194,7 +194,7 @@ function insertHandle(tabId) {
       ><span part="handle-image detach-tree"></span></span>
   `.trim();
   const handleBookmarkTree = `
-    <span part="handle bookmark-tree following ${!configs.handleBookmarkTree && 'hidden'}"
+    <span part="handle bookmark-tree following ${configs.handleBookmarkTree ? '' : 'hidden'}"
          draggable="true"
          data-drag-data='{
            "type": "tab",
@@ -209,7 +209,7 @@ function insertHandle(tabId) {
       ><span part="handle-image bookmark-tree"></span></span>
   `.trim();
   const handleDetachSolo = `
-    <span part="handle detach-solo following ${!configs.handleDetachSolo && 'hidden'}"
+    <span part="handle detach-solo following ${configs.handleDetachSolo ? '' : 'hidden'}"
          draggable="true"
          data-drag-data='{
            "type": "tab",
@@ -224,7 +224,7 @@ function insertHandle(tabId) {
       ><span part="handle-image detach-solo"></span></span>
   `.trim();
   const handleBookmarkSolo =  `
-    <span part="handle bookmark-solo following ${!configs.handleBookmarkSolo && 'hidden'}"
+    <span part="handle bookmark-solo following ${configs.handleBookmarkSolo ? '' : 'hidden'}"
          draggable="true"
          data-drag-data='{
            "type": "tab",
