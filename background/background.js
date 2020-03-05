@@ -140,6 +140,12 @@ configs.$addObserver(key => {
     case 'hideDelay':
       registerToTST();
       return;
+    case 'handleDetachTree':
+    case 'handleBookmarkTree':
+    case 'handleDetachSolo':
+    case 'handleBookmarkSolo':
+      tryReset();
+      return;
   }
 });
 
@@ -167,11 +173,19 @@ browser.tabs.onCreated.addListener(tab => {
   insertHandle(tab.id);
 });
 
+function tryReset() {
+  if (tryReset.reserver)
+    clearTimeout(tryReset.reserver);
+  tryReset.reserver = setTimeout(() => {
+    tryReset.reserver = null;
 browser.tabs.query({}).then(tabs => {
   for (const tab of tabs) {
     insertHandle(tab.id);
   }
 });
+  }, 100);
+}
+tryReset.reserver = null;
 
 function insertHandle(tabId) {
   const handleDetachTree = configs.handleDetachTree ? `
