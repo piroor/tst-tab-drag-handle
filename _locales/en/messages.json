@@ -3,7 +3,7 @@
   "extensionDescription": { "message": "Provides UI in Tree Style Tab to start tab dragging for different purposes." },
 
   "tooltip_detach_tree":  { "message": "Start dragging to detach this tree from the window" },
-  "tooltip_bookmark_treeeee": { "message": "Start dragging to bookmark this tree" },
+  "tooltip_bookmark_tree": { "message": "Start dragging to bookmark this tree" },
   "tooltip_detach_solo":   { "message": "Start dragging to detach this individual tab from the window" },
   "tooltip_bookmark_solo":  { "message": "Start dragging to bookmark this individual tab" },
 
