@@ -174,10 +174,10 @@ browser.tabs.onCreated.addListener(tab => {
 });
 
 function tryReset() {
-  if (tryReset.reserver)
-    clearTimeout(tryReset.reserver);
-  tryReset.reserver = setTimeout(() => {
-    tryReset.reserver = null;
+  if (tryReset.reserved)
+    clearTimeout(tryReset.reserved);
+  tryReset.reserved = setTimeout(() => {
+    tryReset.reserved = null;
 browser.tabs.query({}).then(tabs => {
   for (const tab of tabs) {
     insertHandle(tab.id);
@@ -185,7 +185,7 @@ browser.tabs.query({}).then(tabs => {
 });
   }, 100);
 }
-tryReset.reserver = null;
+tryReset.reserved = null;
 
 function insertHandle(tabId) {
   const handleDetachTree = configs.handleDetachTree ? `
