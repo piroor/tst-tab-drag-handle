@@ -190,7 +190,8 @@ tryReset.reserved = null;
 
 function insertHandle(tabId) {
   const handleDetachTree = configs.handleDetachTree ? `
-    <span part="handle detach-tree"
+    <span anonid="handle-detach-tree"
+         part="handle detach-tree"
          draggable="true"
          data-drag-data='{
            "type": "tab",
@@ -205,7 +206,8 @@ function insertHandle(tabId) {
       ><span part="handle-image detach-tree"></span></span>
   `.trim() : '';
   const handleBookmarkTree = configs.handleBookmarkTree ? `
-    <span part="handle bookmark-tree following"
+    <span anonid="handle-bookmark-tree"
+         part="handle bookmark-tree following"
          draggable="true"
          data-drag-data='{
            "type": "tab",
@@ -220,7 +222,8 @@ function insertHandle(tabId) {
       ><span part="handle-image bookmark-tree"></span></span>
   `.trim() : '';
   const handleDetachSolo = configs.handleDetachSolo ? `
-    <span part="handle detach-solo following"
+    <span anonid="handle-detach-solo"
+         part="handle detach-solo following"
          draggable="true"
          data-drag-data='{
            "type": "tab",
@@ -235,7 +238,8 @@ function insertHandle(tabId) {
       ><span part="handle-image detach-solo"></span></span>
   `.trim() : '';
   const handleBookmarkSolo = configs.handleBookmarkSolo ? `
-    <span part="handle bookmark-solo following"
+    <span anonid="handle-bookmark-solo"
+         part="handle bookmark-solo following"
          draggable="true"
          data-drag-data='{
            "type": "tab",
@@ -254,7 +258,7 @@ function insertHandle(tabId) {
     id:        tabId,
     style:     ANIMATION, // Gecko doesn't apply animation defined in the owner document to shadow DOM elements...
     contents: [
-      '<span part="handles">',
+      '<span anonid="handlers" part="handles">',
       handleDetachTree,
       handleBookmarkTree,
       handleDetachSolo,
