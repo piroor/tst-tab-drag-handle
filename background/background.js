@@ -132,7 +132,7 @@ async function registerToTST() {
     // TST is not available
   }
 }
-registerToTST();
+configs.$loaded.then(registerToTST);
 
 configs.$addObserver(key => {
   switch (key) {
