@@ -190,7 +190,7 @@ tryReset.reserved = null;
 
 function insertHandle(tabId) {
   const handleDetachTree = configs.handleDetachTree ? `
-    <span anonid="handle-detach-tree"
+    <span id="handle-detach-tree"
          part="handle detach-tree"
          draggable="true"
          data-drag-data='{
@@ -206,7 +206,7 @@ function insertHandle(tabId) {
       ><span part="handle-image detach-tree"></span></span>
   `.trim() : '';
   const handleBookmarkTree = configs.handleBookmarkTree ? `
-    <span anonid="handle-bookmark-tree"
+    <span id="handle-bookmark-tree"
          part="handle bookmark-tree following"
          draggable="true"
          data-drag-data='{
@@ -222,7 +222,7 @@ function insertHandle(tabId) {
       ><span part="handle-image bookmark-tree"></span></span>
   `.trim() : '';
   const handleDetachSolo = configs.handleDetachSolo ? `
-    <span anonid="handle-detach-solo"
+    <span id="handle-detach-solo"
          part="handle detach-solo following"
          draggable="true"
          data-drag-data='{
@@ -238,7 +238,7 @@ function insertHandle(tabId) {
       ><span part="handle-image detach-solo"></span></span>
   `.trim() : '';
   const handleBookmarkSolo = configs.handleBookmarkSolo ? `
-    <span anonid="handle-bookmark-solo"
+    <span id="handle-bookmark-solo"
          part="handle bookmark-solo following"
          draggable="true"
          data-drag-data='{
@@ -258,7 +258,7 @@ function insertHandle(tabId) {
     id:        tabId,
     style:     ANIMATION, // Gecko doesn't apply animation defined in the owner document to shadow DOM elements...
     contents: [
-      '<span anonid="handlers" part="handles">',
+      '<span id="handlers" part="handles">',
       handleDetachTree,
       handleBookmarkTree,
       handleDetachSolo,
