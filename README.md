@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/piroor/tst-tab-drag-handle.svg?branch=master)](https://travis-ci.org/piroor/tst-tab-drag-handle)
 
+Install package is available at https://addons.mozilla.org/firefox/addon/tst-tab-drag-handle/
+
 ----
 
 Provides UI in Tree Style Tab to start tab dragging for different purposes.
