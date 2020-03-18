@@ -202,7 +202,7 @@ function insertHandle(tabId) {
              "allowLink":   false
            }
          }'
-         title="${sanitzeForHTML(browser.i18n.getMessage('tooltip_detach_tree'))}"
+         title="${sanitizeForHTML(browser.i18n.getMessage('tooltip_detach_tree'))}"
       ><span part="handle-image detach-tree"></span></span>
   `.trim() : '';
   const handleBookmarkTree = configs.handleBookmarkTree ? `
@@ -218,7 +218,7 @@ function insertHandle(tabId) {
              "allowLink":   true
            }
          }'
-         title="${sanitzeForHTML(browser.i18n.getMessage('tooltip_bookmark_tree'))}"
+         title="${sanitizeForHTML(browser.i18n.getMessage('tooltip_bookmark_tree'))}"
       ><span part="handle-image bookmark-tree"></span></span>
   `.trim() : '';
   const handleDetachSolo = configs.handleDetachSolo ? `
@@ -234,7 +234,7 @@ function insertHandle(tabId) {
              "allowLink":   false
            }
          }'
-         title="${sanitzeForHTML(browser.i18n.getMessage('tooltip_detach_solo'))}"
+         title="${sanitizeForHTML(browser.i18n.getMessage('tooltip_detach_solo'))}"
       ><span part="handle-image detach-solo"></span></span>
   `.trim() : '';
   const handleBookmarkSolo = configs.handleBookmarkSolo ? `
@@ -250,7 +250,7 @@ function insertHandle(tabId) {
              "allowLink":   true
            }
          }'
-         title="${sanitzeForHTML(browser.i18n.getMessage('tooltip_bookmark_solo'))}"
+         title="${sanitizeForHTML(browser.i18n.getMessage('tooltip_bookmark_solo'))}"
       ><span part="handle-image bookmark-solo"></span></span>
   `.trim() : '';
   browser.runtime.sendMessage(TST_ID, {
@@ -268,6 +268,6 @@ function insertHandle(tabId) {
   });
 }
 
-function sanitzeForHTML(string) {
+function sanitizeForHTML(string) {
   return string.replace(/&/g, '&amp;').replace(/\"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
