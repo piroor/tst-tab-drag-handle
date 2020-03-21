@@ -1,19 +1,71 @@
 {
+    "extensionName": {
+        "message": "TST 标签页拖放控件",
+        "hash": "5db71d8b947add0e6f12010ed996b8d8"
+    },
+    "extensionDescription": {
+        "message": "在 树状标签页 中提供 UI（界面接口），以便于根据不同目的对标签页进行拖动。",
+        "hash": "25d35d736e1e44467104bfed3b959e55"
+    },
     "tooltip_detach_tree": {
-        "message": "开始拖拽来使此树与窗口分离",
+        "message": "开始拖动来让此标签树从该窗口分离",
         "hash": "b04f870323376ca2ded6087fc449cbc3"
     },
     "tooltip_bookmark_tree": {
-        "message": "开始拖拽来将此树加入书签",
+        "message": "开始拖动来将此标签树加入书签",
         "hash": "adebb19a61a190f797c581119711bf01"
     },
     "tooltip_detach_solo": {
-        "message": "开始拖拽来使此单独标签页与窗口分离",
+        "message": "开始拖动来让此单个标签页从该窗口分离",
         "hash": "13a4804844126236569da9a74fd03c7c"
     },
     "tooltip_bookmark_solo": {
-        "message": "开始拖拽来将此单独标签页加入书签",
+        "message": "开始拖动来将此单个标签页加入书签",
         "hash": "b52ee181ba28ee1b1c5c600129b22799"
+    },
+    "config_size_label_before": {
+        "message": "控件大小：",
+        "hash": "d5b497c97ddea1e8cbf1ac355a761cd4"
+    },
+    "config_size_label_after": {
+        "message": "像素",
+        "hash": "ca1f4e829e587f327ea56a4f78dfcf4e"
+    },
+    "config_showDelay_label_before": {
+        "message": "在鼠标指向标签页标题超过",
+        "hash": "47bed8d8e6452d2b005fcec6f67699dd"
+    },
+    "config_showDelay_label_after": {
+        "message": "毫秒后显示控件",
+        "hash": "ffa57d16facb71e6f4975ec2f3d67211"
+    },
+    "config_hideDelay_label_before": {
+        "message": "在鼠标离开标签页标题超过",
+        "hash": "84227f93fbdc93d43fedc281d1eb5956"
+    },
+    "config_hideDelay_label_after": {
+        "message": "毫秒后隐藏控件",
+        "hash": "2165d5dbfd0d9ac6654079fd5d3d7b74"
+    },
+    "config_dragHandle_caption": {
+        "message": "活动控件",
+        "hash": "db6bde85c9249ad5ba0721f9eea2bdcc"
+    },
+    "config_handleDetachTree_label": {
+        "message": "从该窗口分离标签树",
+        "hash": "8ed14bc59662b06e4dfca943feba2062"
+    },
+    "config_handleBookmarkTree_label": {
+        "message": "将标签树加入书签",
+        "hash": "b6ddf33cff59c4d9cb9be7ac273ea7b8"
+    },
+    "config_handleDetachSolo_label": {
+        "message": "从该窗口分离单个标签页",
+        "hash": "161b444697fcbf540c305c349f001552"
+    },
+    "config_handleBookmarkSolo_label": {
+        "message": "将单个标签页加入书签",
+        "hash": "554cf00062b386f65e2d083b3fa5b515"
     },
 
     "__WET_LOCALE__": { "message": "zh-CN" }
