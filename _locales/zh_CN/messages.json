@@ -1,10 +1,10 @@
 {
     "extensionName": {
-        "message": "TST 标签页拖放控件",
+        "message": "TST Tab Drag Handle - TST 标签页拖放控件",
         "hash": "5db71d8b947add0e6f12010ed996b8d8"
     },
     "extensionDescription": {
-        "message": "在 树状标签页 中提供 UI（界面接口），以便于根据不同目的对标签页进行拖动。",
+        "message": "在 Tree Style Tab 中提供 UI（界面接口），以便于根据不同目的对标签页进行拖动。",
         "hash": "25d35d736e1e44467104bfed3b959e55"
     },
     "tooltip_detach_tree": {
