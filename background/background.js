@@ -41,18 +41,24 @@ function getStyle() {
     ::part(%EXTRA_CONTENTS_PART% handles) {
       opacity: 0;
       pointer-events: none;
+    }
+    :root.animation ::part(%EXTRA_CONTENTS_PART% handles) {
       transition: opacity var(--collapse-animation) ${hideDelay}ms;
     }
 
     .extra-items-container.front:hover::part(%EXTRA_CONTENTS_PART% handles) {
-      animation: delay-pointer-events calc(var(--collapse-duration) + ${showDelay}ms) linear;
       opacity: 1;
       pointer-events: auto;
+    }
+    :root.animation .extra-items-container.front:hover::part(%EXTRA_CONTENTS_PART% handles) {
+      animation: delay-pointer-events calc(var(--collapse-duration) + ${showDelay}ms) linear;
       transition: opacity var(--collapse-animation) ${showDelay}ms;
     }
 
     tab-item.dragging .extra-items-container.front:hover::part(%EXTRA_CONTENTS_PART% handles) {
       opacity: 0;
+    }
+    :root.animation tab-item.dragging .extra-items-container.front:hover::part(%EXTRA_CONTENTS_PART% handles) {
       transition: opacity var(--collapse-animation);
     }
 
@@ -65,10 +71,12 @@ function getStyle() {
       min-width: var(--handle-icon-size);
       opacity: 0.75;
       text-align: center;
-      transition: border-color var(--collapse-animation),
-                  opacity var(--collapse-animation);
       vertical-align: middle;
       width: var(--handle-icon-size);
+    }
+    :root.animation ::part(%EXTRA_CONTENTS_PART% handle) {
+      transition: border-color var(--collapse-animation),
+                  opacity var(--collapse-animation);
     }
 
     ::part(%EXTRA_CONTENTS_PART% handle following) {
