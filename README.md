@@ -1,6 +1,6 @@
 # TST Tab Drag Handle
 
-[![Build Status](https://travis-ci.org/piroor/tst-tab-drag-handle.svg?branch=trunk)](https://travis-ci.org/piroor/tst-tab-drag-handle)
+![Build Status](https://github.com/piroor/tst-tab-drag-handle/actions/workflows/main.yml/badge.svg?branch=trunk)
 
 Install package is available at https://addons.mozilla.org/firefox/addon/tst-tab-drag-handle/
 
