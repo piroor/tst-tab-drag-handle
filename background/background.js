@@ -262,8 +262,9 @@ function insertHandle(tabId) {
       ><span part="handle-image bookmark-solo"></span></span>
   `.trim() : '';
   browser.runtime.sendMessage(TST_ID, {
-    type:      'set-extra-tab-contents',
-    id:        tabId,
+    type:      'set-extra-contents',
+    tabId,
+    place:     'tab-front',
     style:     ANIMATION, // Gecko doesn't apply animation defined in the owner document to shadow DOM elements...
     contents: [
       '<span id="handlers" part="handles">',
