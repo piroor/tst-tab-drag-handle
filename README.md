@@ -2,7 +2,8 @@
 
 ![Build Status](https://github.com/piroor/tst-tab-drag-handle/actions/workflows/main.yml/badge.svg?branch=trunk)
 
-Install package is available at https://addons.mozilla.org/firefox/addon/tst-tab-drag-handle/
+* [Signed package on AMO](https://addons.mozilla.org/firefox/addon/tst-tab-drag-handle/)
+* [Development builds for each commit are available at "Artifacts" of the CI/CD action](https://github.com/piroor/tst-tab-drag-handle/actions?query=workflow%3ACI%2FCD)
 
 ----
 
