@@ -6,7 +6,8 @@
 'use strict';
 
 import {
-  configs
+  configs,
+  nextFrame,
 } from '/common/common.js';
 
 const TST_ID = 'treestyletab@piro.sakura.ne.jp';
@@ -203,6 +204,8 @@ function tryReset() {
 }
 tryReset.reserved = null;
 
+const mPendingInsertContentsMessages = new Map();
+
 function insertHandle(tabId) {
   const handleDetachTree = configs.handleDetachTree ? `
     <span id="handle-detach-tree"
@@ -268,7 +271,7 @@ function insertHandle(tabId) {
          title="${sanitizeForHTML(browser.i18n.getMessage('tooltip_bookmark_solo'))}"
       ><span part="handle-image bookmark-solo"></span></span>
   `.trim() : '';
-  browser.runtime.sendMessage(TST_ID, {
+  mPendingInsertContentsMessages.set(tabId, {
     type:      'set-extra-contents',
     tabId,
     place:     'tab-front',
@@ -281,6 +284,16 @@ function insertHandle(tabId) {
       handleBookmarkSolo,
       '</span>'
     ].join('')
+  });
+
+  const startAt = `${Date.now()}-${parseInt(Math.random() * 65000)}`;
+  insertHandle.lastStartedAt = startAt;
+  nextFrame().then(() => {
+    if (insertHandle.lastStartedAt != startAt)
+      return;
+    const messages = [...mPendingInsertContentsMessages.values()];
+    mPendingInsertContentsMessages.clear();
+    browser.runtime.sendMessage(TST_ID, { messages });
   });
 }
 

@@ -20,3 +20,9 @@ export const configs = new Configs({
   localKeys: [
   ]
 });
+
+export function nextFrame() {
+  return new Promise((resolve, _reject) => {
+    window.requestAnimationFrame(resolve);
+  });
+}
