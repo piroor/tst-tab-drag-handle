@@ -131,7 +131,7 @@ async function registerToTST() {
       //icons: browser.runtime.getManifest().icons,
       listeningTypes: [
         'sidebar-show',
-        'tab-rendered',
+        'tabs-rendered',
       ],
       style: getStyle()
     });
@@ -175,8 +175,10 @@ browser.runtime.onMessageExternal.addListener((message, sender) => {
           });
           break;
 
-        case 'tab-rendered':
-          insertHandle(message.tab.id);
+        case 'tabs-rendered':
+          for (const tab of message.tabs) {
+            insertHandle(tab.id);
+          }
           break;
       }
       break;
