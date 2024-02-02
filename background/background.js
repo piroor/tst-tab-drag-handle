@@ -125,6 +125,7 @@ function getStyle() {
 }
 
 let mCanSendBulkMessages = false;
+let mRenderedOnDemand    = false;
 
 async function registerToTST() {
   try {
@@ -143,7 +144,7 @@ async function registerToTST() {
     ]);
     tryReset();
     if (TSTVersion && parseInt(TSTVersion.split('.')[0]) >= 4)
-      mCanSendBulkMessages = true;
+      mCanSendBulkMessages = mRenderedOnDemand = true;
   }
   catch(_error) {
     // TST is not available
@@ -194,6 +195,8 @@ browser.runtime.onMessageExternal.addListener((message, sender) => {
 });
 
 browser.tabs.onCreated.addListener(tab => {
+  if (mRenderedOnDemand)
+    return;
   insertHandle(tab.id);
 });
 
