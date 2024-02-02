@@ -124,19 +124,26 @@ function getStyle() {
   `;
 }
 
+let mCanSendBulkMessages = false;
+
 async function registerToTST() {
   try {
-    await browser.runtime.sendMessage(TST_ID, {
-      type: 'register-self' ,
-      name: browser.i18n.getMessage('extensionName'),
-      //icons: browser.runtime.getManifest().icons,
-      listeningTypes: [
-        'sidebar-show',
-        'tabs-rendered',
-      ],
-      style: getStyle()
-    });
+    const [TSTVersion] = await Promise.all([
+      browser.runtime.sendMessage(TST_ID, { type: 'vet-version' }),
+      browser.runtime.sendMessage(TST_ID, {
+        type: 'register-self' ,
+        name: browser.i18n.getMessage('extensionName'),
+        //icons: browser.runtime.getManifest().icons,
+        listeningTypes: [
+          'sidebar-show',
+          'tabs-rendered',
+        ],
+        style: getStyle()
+      }),
+    ]);
     tryReset();
+    if (TSTVersion && parseInt(TSTVersion.split('.')[0]) >= 4)
+      mCanSendBulkMessages = true;
   }
   catch(_error) {
     // TST is not available
@@ -293,7 +300,14 @@ function insertHandle(tabId) {
       return;
     const messages = [...mPendingInsertContentsMessages.values()];
     mPendingInsertContentsMessages.clear();
-    browser.runtime.sendMessage(TST_ID, { messages });
+    if (mCanSendBulkMessages) {
+      browser.runtime.sendMessage(TST_ID, { messages });
+    }
+    else {
+      for (const message of messages) {
+        browser.runtime.sendMessage(TST_ID, message);
+      }
+    }
   });
 }
 
