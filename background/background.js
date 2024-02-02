@@ -7,7 +7,6 @@
 
 import {
   configs,
-  nextFrame,
 } from '/common/common.js';
 
 const TST_ID = 'treestyletab@piro.sakura.ne.jp';
@@ -298,7 +297,7 @@ function insertHandle(tabId) {
 
   const startAt = `${Date.now()}-${parseInt(Math.random() * 65000)}`;
   insertHandle.lastStartedAt = startAt;
-  nextFrame().then(() => {
+  window.requestAnimationFrame(() => {
     if (insertHandle.lastStartedAt != startAt)
       return;
     const messages = [...mPendingInsertContentsMessages.values()];
