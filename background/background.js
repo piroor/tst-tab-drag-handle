@@ -138,7 +138,8 @@ async function registerToTST() {
           'sidebar-show',
           'tabs-rendered',
         ],
-        style: getStyle()
+        allowBulkMessaging: true,
+        style: getStyle(),
       }),
     ]);
     tryReset();
@@ -167,9 +168,15 @@ configs.$addObserver(key => {
   }
 });
 
-browser.runtime.onMessageExternal.addListener((message, sender) => {
+function onMessageExternal(message, sender) {
   switch (sender.id) {
     case TST_ID:
+      if (message && message.messages) {
+        for (const oneMessage of message.messages) {
+          onMessageExternal(oneMessage, sender);
+        }
+        break;
+      }
       switch (message.type) {
         case 'ready':
           registerToTST();
@@ -191,7 +198,8 @@ browser.runtime.onMessageExternal.addListener((message, sender) => {
       }
       break;
   }
-});
+}
+browser.runtime.onMessageExternal.addListener(onMessageExternal);
 
 browser.tabs.onCreated.addListener(tab => {
   if (mRenderedOnDemand)
