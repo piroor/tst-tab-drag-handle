@@ -139,12 +139,17 @@ async function registerToTST() {
           'tabs-rendered',
         ],
         allowBulkMessaging: true,
+        lightTree: true,
         style: getStyle(),
       }),
     ]);
     tryReset();
-    if (TSTVersion && parseInt(TSTVersion.split('.')[0]) >= 4)
+    if (TSTVersion && parseInt(TSTVersion.split('.')[0]) >= 4) {
       mCanSendBulkMessages = mRenderedOnDemand = true;
+    }
+    else {
+      mCanSendBulkMessages = mRenderedOnDemand = false;
+    }
   }
   catch(_error) {
     // TST is not available
