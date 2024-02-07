@@ -143,13 +143,13 @@ async function registerToTST() {
         style: getStyle(),
       }),
     ]);
-    tryReset();
     if (TSTVersion && parseInt(TSTVersion.split('.')[0]) >= 4) {
       mCanSendBulkMessages = mRenderedOnDemand = true;
     }
     else {
       mCanSendBulkMessages = mRenderedOnDemand = false;
     }
+    tryReset();
   }
   catch(_error) {
     // TST is not available
@@ -188,7 +188,15 @@ function onMessageExternal(message, sender) {
           break;
 
         case 'sidebar-show':
-          browser.tabs.query({ windowId: message.windowId }).then(tabs => {
+          (mRenderedOnDemand ?
+            browser.runtime.sendMessage(TST_ID, {
+              type:     'get-light-tree',
+              windowId: message.windowId,
+              tabs:     '*',
+              rendered: true,
+            }) :
+            browser.tabs.query({ windowId: message.windowId })
+          ).then(tabs => {
             for (const tab of tabs) {
               insertHandle(tab.id);
             }
@@ -215,13 +223,22 @@ browser.tabs.onCreated.addListener(tab => {
 function tryReset() {
   if (tryReset.reserved)
     clearTimeout(tryReset.reserved);
-  tryReset.reserved = setTimeout(() => {
+  tryReset.reserved = setTimeout(async () => {
     tryReset.reserved = null;
-    browser.tabs.query({}).then(tabs => {
-      for (const tab of tabs) {
-        insertHandle(tab.id);
-      }
-    });
+    const tabs = await (mRenderedOnDemand ?
+      browser.windows.getAll().then(async windows => {
+        const tabs = await Promise.all(windows.map(win => browser.runtime.sendMessage(TST_ID, {
+          type:     'get-light-tree',
+          windowId: win.id,
+          tabs:     '*',
+          rendered: true,
+        })));
+        return tabs.flat();
+      }) :
+      browser.tabs.query({}));
+    for (const tab of tabs) {
+      insertHandle(tab.id);
+    }
   }, 100);
 }
 tryReset.reserved = null;
