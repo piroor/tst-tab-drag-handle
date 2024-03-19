@@ -7,9 +7,11 @@
 
 import {
   configs,
+  TST_ID,
+  WS_ID,
+  callTSTAPI,
+  getTSTVersion,
 } from '/common/common.js';
-
-const TST_ID = 'treestyletab@piro.sakura.ne.jp';
 
 // pointer-events is not transitionable, so we use animation.
 const ANIMATION = `
@@ -129,8 +131,8 @@ let mRenderedOnDemand    = false;
 async function registerToTST() {
   try {
     const [TSTVersion] = await Promise.all([
-      browser.runtime.sendMessage(TST_ID, { type: 'get-version' }),
-      browser.runtime.sendMessage(TST_ID, {
+      getTSTVersion(),
+      callTSTAPI({
         type: 'register-self' ,
         name: browser.i18n.getMessage('extensionName'),
         //icons: browser.runtime.getManifest().icons,
@@ -176,6 +178,7 @@ configs.$addObserver(key => {
 function onMessageExternal(message, sender) {
   switch (sender.id) {
     case TST_ID:
+    case WS_ID:
       if (message && message.messages) {
         for (const oneMessage of message.messages) {
           onMessageExternal(oneMessage, sender);
@@ -189,7 +192,7 @@ function onMessageExternal(message, sender) {
 
         case 'sidebar-show':
           (mRenderedOnDemand ?
-            browser.runtime.sendMessage(TST_ID, {
+            callTSTAPI({
               type:     'get-light-tree',
               windowId: message.windowId,
               tabs:     '*',
@@ -227,7 +230,7 @@ function tryReset() {
     tryReset.reserved = null;
     const tabs = await (mRenderedOnDemand ?
       browser.windows.getAll().then(async windows => {
-        const tabs = await Promise.all(windows.map(win => browser.runtime.sendMessage(TST_ID, {
+        const tabs = await Promise.all(windows.map(win => callTSTAPI({
           type:     'get-light-tree',
           windowId: win.id,
           tabs:     '*',
@@ -333,11 +336,11 @@ function insertHandle(tabId) {
     const messages = [...mPendingInsertContentsMessages.values()];
     mPendingInsertContentsMessages.clear();
     if (mCanSendBulkMessages) {
-      browser.runtime.sendMessage(TST_ID, { messages });
+      callTSTAPI({ messages });
     }
     else {
       for (const message of messages) {
-        browser.runtime.sendMessage(TST_ID, message);
+        callTSTAPI(message);
       }
     }
   });
