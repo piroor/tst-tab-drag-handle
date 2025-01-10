@@ -30,7 +30,7 @@ function getStyle() {
     ::part(%EXTRA_CONTENTS_PART% container) {
       bottom: 0;
       direction: ltr;
-      left: 0;
+      inset-inline-start: 0;
       line-height: 1;
       overflow: hidden;
       position: absolute;
@@ -82,7 +82,7 @@ function getStyle() {
     }
 
     ::part(%EXTRA_CONTENTS_PART% handle following) {
-      margin-left: -1px;
+      margin-inline-start: -1px;
     }
 
     ::part(%EXTRA_CONTENTS_PART% handle-image) {
