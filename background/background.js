@@ -133,16 +133,16 @@ async function registerToTST() {
     const [TSTVersion] = await Promise.all([
       getTSTVersion(),
       callTSTAPI({
-        type: 'register-self' ,
-        name: browser.i18n.getMessage('extensionName'),
+        type:           'register-self',
+        name:           browser.i18n.getMessage('extensionName'),
         //icons: browser.runtime.getManifest().icons,
         listeningTypes: [
           'sidebar-show',
           'tabs-rendered',
         ],
         allowBulkMessaging: true,
-        lightTree: true,
-        style: getStyle(),
+        lightTree:          true,
+        style:              getStyle(),
       }),
     ]);
     if (TSTVersion && parseInt(TSTVersion.split('.')[0]) >= 4) {
@@ -314,10 +314,10 @@ function insertHandle(tabId) {
       ><span part="handle-image bookmark-solo"></span></span>
   `.trim() : '';
   mPendingInsertContentsMessages.set(tabId, {
-    type:      'set-extra-contents',
+    type:     'set-extra-contents',
     tabId,
-    place:     'tab-front',
-    style:     ANIMATION, // Gecko doesn't apply animation defined in the owner document to shadow DOM elements...
+    place:    'tab-front',
+    style:    ANIMATION, // Gecko doesn't apply animation defined in the owner document to shadow DOM elements...
     contents: [
       '<span id="handlers" part="handles">',
       handleDetachTree,

@@ -8,12 +8,12 @@
 import Configs from '/extlib/Configs.js';
 
 export const configs = new Configs({
-  handleDetachTree: true,
+  handleDetachTree:   true,
   handleBookmarkTree: true,
-  handleDetachSolo: true,
+  handleDetachSolo:   true,
   handleBookmarkSolo: true,
 
-  size: 24,
+  size:      24,
   showDelay: 750,
   hideDelay: 250,
 
